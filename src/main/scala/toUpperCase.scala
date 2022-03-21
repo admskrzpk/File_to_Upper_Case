@@ -2,9 +2,15 @@ import scala.io.Source
 
 object toUpperCase extends App {
     val n = args(0).toInt
-    val line = Source.fromFile(args(1)).getLines.toList.flatMap(c => c.split("\\W+"))
-    val upperCase = line.map(w => if (line.indexOf(w) % n == 0){w.toUpperCase } else{w} )
-print(upperCase)
+    val line = Source
+      .fromFile(args(1))
+      .getLines
+      .toList
+      .flatMap(c => c.split("\\W+"))
+      .zipWithIndex.map((w) => if (w._2 % n ==0) {w._1.toUpperCase} else w._1 )
+
+
+    print(line)
 }
 
 
