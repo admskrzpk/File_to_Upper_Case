@@ -1,0 +1,4 @@
+All this involves a bit of magic. The App trait extends another trait, DelayedInit, that gets special
+handling from the compiler. All initialization code of a class with that trait is moved into a delayedInit
+method. The main of the App trait method captures the command-line arguments, calls the delayedInit
+method, and optionally prints the elapsed time.
